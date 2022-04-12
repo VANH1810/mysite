@@ -1,0 +1,18 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+<center> <h1 class = "tieude"> FOOTBALL SURVEY </h1> </center>
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <fieldset>
+            <legend>
+                <h1><a class = "concac" href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></h1> 
+            </legend>
+        </fieldset>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+<center> <h2><a class = "tieude2" href="/"> HOME </a> </h2> </center>
